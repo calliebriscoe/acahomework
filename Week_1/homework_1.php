@@ -4,7 +4,7 @@
 $inputString
     = <<<MYSTR
 Can you feel the pulse in your wrist? For humans the normal pulse is 70 heartbeats per minute.
-Elephants have a slower pulse of 27 and for a canary it is 1000!
+ Elephants have a slower pulse of 27 and for a canary it is 1000!
 If all the blood vessels in your body were laid end to end, they would reach about 60,000 miles.
 In one day your heart beats 100,000 times.
 Half your body’s red blood cells are replaced every seven days.
@@ -24,15 +24,38 @@ MYSTR;
 /** @var array $countArray Result array that contains the counts. You will populate this array with appropriate numbers */
 $countArray = array('num_numeric' => 0, 'num_string' => 0, 'num_bool' => 0);
 
-$inputString = str_replace("."," ",$inputString);
-$inputString = str_replace("/n"," ",$inputString);
+$inputString = trim($inputString);
+$inputString = strtolower($inputString);
+$inputString = str_replace("\n","",$inputString);
 $inputString = str_replace('"'," ",$inputString);
-$inputString = str_replace(','," ",$inputString);
+$inputString = str_replace(',',"",$inputString);
+$inputString = str_replace('?',"",$inputString);
+$inputString = str_replace('.',"",$inputString);
+$inputString = str_replace('!'," ",$inputString);
+$inputString = str_replace('(',"",$inputString);
+$inputString = str_replace(')',"",$inputString);
+
+
+
 
 /** @var array $wordArray Array of every word in the input string */
 $wordArray = explode(" ", $inputString);
 
+echo 'Boolean Count: ';
+$trueCount = array_count_values($wordArray);
+$Boolean = $trueCount['true'] + $trueCount['false'];
+echo $Boolean;
+echo "<br/>";
 
-print_r($wordArray);
+
+echo 'Words count: ';
+$wordCount = str_word_count($inputString,0,"'") - $Boolean;
+echo $wordCount;
+echo "<br>";
+
+
+echo 'Numbers count: ';
+echo "";
+echo "<br>";
 
 ?>
