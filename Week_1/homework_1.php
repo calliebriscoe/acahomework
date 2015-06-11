@@ -55,7 +55,15 @@ echo "<br>";
 
 
 echo 'Numbers count: ';
-echo "";
+
+$count = 0;
+foreach ($wordArray as $number) {
+  if ($number->type === [0-9]) {
+    $count++;
+  }
+}
+
+echo "$count";
 echo "<br>";
 
 ?>
