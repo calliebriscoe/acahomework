@@ -51,25 +51,49 @@ print_r($shuffleddeck);
 <form action="DeckofCards.php" method="post">
 <H3>
   <div> How many card players? <input type="text" name="players">
+
+</h3>
+<br>
+<H3>
+  <div> How many cards per players? <input type="text" name="numofcard">
   <input type="submit" value="submit"></div>
 </h3>
 </form>
-
 <?php
 
 $players = $_POST['players'];
 
-$numberofcards = round(52/$players, 0);
+$numofcard = $_POST['numofcard'];
 
-$PlayersHand = array_chunk($shuffleddeck, $numberofcards);
+$PlayersHand = array_chunk($shuffleddeck, $numofcard);
+
+$i = 1;
 
 foreach ($PlayersHand as $playersnumber => $player) {
+
   echo "Player $playersnumber:\n";
+
+!if($i == $numofcard) {
+
   foreach ($player as $cardnumber => $card) {
+
     echo "Card: $card\n";
+
+    $i = ++
   };
 echo "\n";
 };
+};
+
+
+
+$cardsperplayer = $players * $numofcard;
+
+$PlayersHand = array_slice($shuffleddeck, $players, $cardsperplayer);
+
+echo "Remainer of Cards:\n";
+
+print_r($PlayersHand);
 
 
 ?><H3>
