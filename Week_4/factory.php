@@ -36,6 +36,10 @@ try{
 $corolla = CarFactory::getCar('corolla', 'DX');
 
 $camry = CarFactory::getCar('camry', 'LX');
+
+$foo = CarFactory::getCar('mazda', 'DE');
+
+
 } catch (NotImplementedException $ExceptionObject){
   echo '<p style="color:red;">'. $ExceptionObject->getMessage() . '</p>'
 }

@@ -92,11 +92,6 @@ public function setLanguages($languages){
 }
 }
 
-
-$countryInfo = new CountryInformation('Mexico');
-echo '<pre>';
-print_r($countryInfo);
-
 ?>
 <html>
 
