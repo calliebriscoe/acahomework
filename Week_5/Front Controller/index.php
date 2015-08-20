@@ -1,4 +1,11 @@
+
 <?php
+
+require('mysql.php');
+
+$db = new mysql.php('localhost', 'root', 'root', 'acashop');
+
+
 
 $uri = $_SERVER['REQUEST_URI'];
 $parts = explode('/',$uri);
