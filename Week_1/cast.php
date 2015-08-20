@@ -26,3 +26,6 @@ $countArray = array('num_numeric' => 0, 'num_string' => 0, 'num_bool' => 0);
 
 /** @var array $wordArray Array of every word in the input string */
 $wordArray = explode(" ", $inputString);
+
+echo "I'm invading your code";
+
